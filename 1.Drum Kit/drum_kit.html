@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drum Kit</title>
+    <link href="style.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="keys">
+        <div class="key">
+            <kbd>A</kbd><span>CLAP</span>
+        </div>
+        <div class="key">
+            <kbd>S</kbd><span>KICK</span>
+        </div>
+        <div class="key">
+            <kbd id="d">D</kbd><span>HIHAT</span>
+        </div>
+        <div class="key">
+            <kbd>F</kbd><span>OPENHAT</span>
+        </div>
+        <div class="key">
+            <kbd>G</kbd><span>BOOM</span>
+        </div>
+        <div class="key">
+            <kbd>H</kbd><span>RIDE</span>
+        </div>
+        <div class="key">
+            <kbd>J</kbd><span>SNARE</span>
+        </div>
+        <div class="key">
+            <kbd>K</kbd><span>TOM</span>
+        </div>
+        <div class="key">
+            <kbd>L</kbd><span>TINK</span>
+        </div>
+    </div>
+</body>
+<script>
+    window.addEventListener("keydown", function (e) {
+        let key = e.code
+        console.log(key);
+        let audio = document.createElement("audio")
+
+        //加入src 和 播放聲音
+        function getAudioSrc(e) {
+            switch (key) {
+                case "KeyA":
+                    audio.src = "./sounds/clap.wav"
+                    break
+                case "KeyS":
+                    audio.src = "./sounds/kick.wav"
+                    break
+                case "KeyD":
+                    audio.src = "./sounds/hihat.wav"
+                    break
+                case "KeyF":
+                    audio.src = "./sounds/openhat.wav"
+                    break
+                case "KeyG":
+                    audio.src = "./sounds/boom.wav"
+                    break
+                case "KeyH":
+                    audio.src = "./sounds/ride.wav"
+                    break
+                case "KeyJ":
+                    audio.src = "./sounds/snare.wav"
+                    break
+
+                case "KeyK":
+                    audio.src = "./sounds/tom.wav"
+                    break
+                case "KeyL":
+                    audio.src = "./sounds/tink.wav"
+                    break
+                default:
+                    console.log("nothing works")
+                    break
+            }
+            //搜尋 kbd內文, 對應按鍵輸入 (僅適用字母區)
+            let kbdAll = document.querySelectorAll("kbd")
+            let keytoString = key.toString().slice(3, 4) //將 key.code轉為字串 + 切割
+
+            for (let i = 0; i < kbdAll.length; i++) {
+                let kbdText = kbdAll[i].innerHTML //kbd 內文
+                let targetKBD = kbdAll[i] //每個目標 kbd
+
+                //當內文===按鍵值字串
+                //audio.src 存在: 避免 altLeft 會干擾 KeyL
+                if (kbdText === keytoString && audio.src) {
+                    targetKBD.parentNode.classList.add("keyPlaying") //目標父層加上 css樣式
+                }
+            }
+            audio.play() //播放
+        }
+        getAudioSrc()
+    })
+
+    //清除有外框效果 CSS
+    window.addEventListener("keyup", function (e) {
+        let el = document.querySelectorAll(".keyPlaying")
+        let key = e.code
+        // console.log(el);
+        if (key) {
+            el.forEach(el => {
+                el.classList.remove("keyPlaying")
+            });
+        }
+    })
+    console.log(a);
+</script>
+
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Method</title>
+</head>
+
+<body>
+    <script>
+        let array = ["a", 321, true]
+        let arrayNumber = [1, 23, 45, 600]
+
+        //forEach()
+        array.forEach(x =>
+            console.log(x)
+        )
+
+        //map()
+        let mapArray = arrayNumber.map(x => x ** 2)
+        console.log("mapArray", mapArray);
+
+        //filter():回傳判斷式為 true的陣列
+        //寫法1:
+        let filterArray1 = arrayNumber.filter(x => x > 35 ? x : '')
+        console.log("filterArray1", filterArray1);
+        //寫法2:
+        let filterArray2 = arrayNumber.filter(x => x > 35)
+        console.log("filterArray2", filterArray2);
+
+        //every():以判斷式檢查每個元素
+        let trueArray = arrayNumber.every(x => x > 0)
+        console.log("trueArray", trueArray);
+        let falseArray = arrayNumber.every(x => x > 10)
+        console.log("falseArray", falseArray);
+
+        //some():以判斷式檢查，全部元素皆false才為 false, 否則為true
+        let trueArray1 = arrayNumber.some(x => x > 0)
+        console.log("trueArray1", trueArray1);
+        let falseArray1 = arrayNumber.some(x => x > 600)
+        console.log("falseArray1", falseArray1);
+
+        //reduce()|| reduceRight(): 結合陣列所有元素(左至右||右至左)，回傳一個值
+        /*
+        array.reduce(function(accumulator, currentValue, currentIndex, array){},initial Value)
+        accumulator:累加器，為前次函式所回傳的先前值或者是初始值。
+        currentValue:目前處理元素的值。
+        currentIndex:目前處理元素的索引值。有給定初始值，由0開始，無初始值則由1開始。
+        initial Value:初始值。
+        */
+        let reduceArray = arrayNumber.reduce(function (accumulator, currentValue) {
+            return accumulator + currentValue
+        })
+        console.log("reduceArray", reduceArray);
+
+        //sort():依大小寫、數值大小排列
+        /*
+        array.sort(function(a, b){
+            if(a的值 > b的值){
+            return > 0 (a.index > b.index)
+            return = 0 (a.index與b.index不變)
+            return < 0 (a.index < b.index)
+            }
+        })
+        */
+        let testArray = ['apple', 'Apple', 'banana', 'Cat', 'Dog']
+        let sortArray = testArray.sort()
+        console.log("sortArray", sortArray);
+        console.log("testArray", testArray); //原陣列順序已更動
+
+    </script>
+</body>
+
+</html>

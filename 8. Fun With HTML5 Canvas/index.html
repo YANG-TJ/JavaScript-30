@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>HTML5 Canvas</title>
+    <style>
+        html,
+        body {
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="draw" width="800" height="800"></canvas>
+    <script>
+        const canvas = document.querySelector('#draw');
+        const ctx = canvas.getContext('2d');
+        let isDrawing = false; //繪畫的起始，初始為false
+        let lastX = 0; //初始座標(0,0)
+        let lastY = 0;
+        let hue = 0; //定義初始顏色
+        let direction = true //定義粗細參數
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        //定義繪製的顯示方法
+        ctx.strokeStyle = "#ccc"; //繪製的顏色
+        ctx.lineJoin = "round";  //定義兩線相交時的拐角練習, round為圓弧
+        ctx.lineCap = "round";  //定義結束端點樣式
+        ctx.lineWidth = 100; //定義寬度
+
+
+        //色彩 hsl(hue, Saturation, Lightness)
+        /*
+        hue代表顏色的度數 0-360，0是紅色 ，120是綠色，240是藍色
+        Saturation代表灰階程度，0%為灰黑，100%為彩色，一般設置為100%
+        Lightness為亮度，0%代表黑，100%代表白，一般設置為50%
+        */
+
+        //繪圖4個參數:
+        /*
+        ctx.beginPath() //繪圖啟動
+        ctx.moveTo(a,b) //起始位置
+        ctx.lineTo(a,b) //終點位置
+        ctx.stroke() //代表繪製已定義的路徑
+        */
+
+        function draw(e) {
+            if (!isDrawing) return;
+            // console.log(e); //e:目前座標位置, 顯示代表成功
+
+            ctx.strokeStyle = `hsl(${hue},100%,50%)`;
+            ctx.beginPath(); //繪圖啟動
+            ctx.moveTo(lastX, lastY); //起始位置
+            ctx.lineTo(e.offsetX, e.offsetY); //畫到的位置
+            ctx.stroke(); //代表繪製已定義的路徑
+            [lastX, lastY] = [e.offsetX, e.offsetY]; //更新起始位置
+            
+            hue++;
+            if (hue >= 360) {
+                hue = 0; //++超過360則自動歸 0
+            };
+
+            //direction為 true, ctx.lineWidth遞增,至100改為 false
+            //direction為 false, ctx.lineWidth遞減,至1改為 true
+            if (ctx.lineWidth >= 100 || ctx.lineWidth <= 1) {
+                direction = !direction;
+            }
+            if (direction) {
+                ctx.lineWidth++;
+            } else {
+                ctx.lineWidth--;
+            }
+        }
+
+        canvas.addEventListener('mousedown', (e) => {
+            isDrawing = true;
+            [lastX, lastY] = [e.offsetX, e.offsetY];
+        }) //開始繪圖
+        canvas.addEventListener('mousemove', draw) //繪圖中
+        canvas.addEventListener('mouseup', () => isDrawing = false) //完成繪圖
+        canvas.addEventListener('mouseout', () => isDrawing = false) //移出視窗,取消繪圖
+
+    </script>
+</body>
+
+</html>

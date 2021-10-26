@@ -1,0 +1,43 @@
+
+/* flex:1 詳解:
+https://stackoverflow.com/questions/37386244/what-does-flex-1-mean
+*/
+html {
+  background: url("https://thumbs.dreamstime.com/b/drum-stick-wooden-table-yellow-background-music-concept-215071584.jpg;");
+  background-position: bottom center;
+  background-size: cover;
+}
+
+.keys {
+  display: flex;
+  flex: 1;
+  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.key {
+  min-width: 55px;
+  border-radius: 10px;
+  background: white;
+  display: block;
+  text-align: center;
+  padding: 10px 5px;
+  margin: 5px;
+}
+
+.keyPlaying {
+  /* border: 1px solid blue; */
+  box-shadow: 0 0 1rem rgb(255, 1, 1);
+}
+
+kbd {
+  display: block;
+  font-size: 1rem;
+}
+
+span {
+  color: cornflowerblue;
+  font-size: 0.5rem;
+}
+

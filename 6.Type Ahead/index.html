@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Type Ahead 👀</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .h1 {
+      color: rgb(49, 49, 49);
+      background-color: rgb(255, 217, 0);
+    }
+  </style>
+</head>
+
+<body>
+
+  <form class="search-form">
+    <input type="text" class="search" placeholder="City or State">
+    <ul class="suggestions">
+      <li>Filter for a city</li>
+      <li>or a state</li>
+    </ul>
+  </form>
+
+  <script>
+    const endpoint = 'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json';
+
+    const searchInput = document.querySelector('.search')
+    const suggestions = document.querySelector('.suggestions')
+
+    let cities = []
+    fetch(endpoint).then(
+      blob => blob.json()
+    ).then(data =>
+      cities = data
+    ).catch(err=>console.log("error",err))
+
+    //篩選符合條件者
+    function findMatches(word, cities) {
+      return cities.filter(place => {
+        const regex = new RegExp(word, 'gi'); //g代表 global; i代表 insensitive,不受大小寫影響
+        return place.city.match(regex) || place.state.match(regex);
+      });
+    }
+
+    function displayMatches(e) {
+      let checkWord = e.target.value
+      console.log("checkWord", checkWord);
+      const matchArray = findMatches(checkWord, cities) 
+
+      //將需要資料轉為 html格式
+      const html = matchArray.map(place => {
+        const regex = new RegExp(checkWord, 'gi')
+
+        //點亮符合字, 以<span></span>呈現
+        const cityName = place.city.replace(regex, `<span class="h1">${checkWord}</span>`) 
+        const stateName = place.state.replace(regex, `<span class="h1">${checkWord}</span>`)
+        return `
+        <li>
+          <span class="name">${cityName}, ${stateName}</span>
+          <span class="population">${place.population}</span>
+        </li>
+        `
+      }).join('') //陣列轉回字串
+
+      //ul中的 html內容改為符合內容
+      suggestions.innerHTML = html
+    }
+
+    //監聽事件
+    searchInput.addEventListener('change', displayMatches)
+    searchInput.addEventListener('keyup', displayMatches)
+  </script>
+</body>
+
+</html>

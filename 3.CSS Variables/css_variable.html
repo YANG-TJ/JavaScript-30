@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css_variable</title>
+    <style>
+        body {
+            margin: 0 auto;
+        }
+
+        .main {
+            max-width: max-content;
+            width: 50%;
+            height: auto;
+            min-width: fit-content;
+            margin: 50px auto;
+            text-align: center;
+
+        }
+
+        span {
+            color: #9898ff;
+        }
+
+        label{
+            font-size: 1.2rem;
+        }
+        .control {
+            display: flexbox;
+            justify-content: center;
+            align-self: baseline;
+            margin: 0 1.5px 50px;
+        }
+
+        #box {
+            margin: 0 auto;
+            width: 600px;
+            height: 360px;
+            min-width: 100%;
+            background-color: #9898ff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        img {
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <h1>Update CSS Variables with <span>JS</span></h1>
+        <div class="control">
+            <label for="spacing">Spacing:</label>
+            <input id="spacing" name="spacing" type="range" class="bar" min="1" max="5"></input>
+            <label for="blur">Blur:</label>
+            <input id="blur" name="blur" type="range" class="bar" min="0" max="4"></input>
+            <label for="color ">Base Color</label>
+            <input id="color" name="color" type="color" value="#9898ff"></input>
+        </div>
+        <div id="box">
+            <img src="https://source.unsplash.com/7bwQXzbF6KE/800x500" alt="picture">
+        </div>
+    </div>
+    <script>
+        const img = document.querySelector("img")
+        const spacing = document.getElementById("spacing")
+        const blurring = document.getElementById("blur")
+        const color = document.getElementById("color")
+        const box = document.getElementById("box")
+        const span = document.querySelector("span")
+
+        //縮放圖片
+        function spacingChange() {
+            let spacingValue = spacing.value
+            let imgWidth = box.clientWidth
+            let imgHeight = box.clientHeight
+            img.style.width = imgWidth * (spacingValue / spacing['max']) + "px"
+        }
+        spacingChange(); //defualt value
+
+        spacing.addEventListener("change", spacingChange)
+
+        //模糊
+        function blurChange() {
+            let blurValue = blurring.value;
+            img.style.filter = `blur(${blurValue}px)`;
+        }
+        blurChange(); //defualt value
+
+        blurring.addEventListener("change", blurChange)
+
+        //變色
+        color.addEventListener("change", function () {
+            //color value格式: #rrggbb
+            let colorValue = color.value;
+            box.style.backgroundColor = `${colorValue}`;
+            span.style.color = `${colorValue}`;
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Console Tricks!</title>
+</head>
+
+<body>
+
+    <p>×BREAK×DOWN×</p>
+
+    <script>
+        const dogs = [{ name: 'Snickers', age: 2 }, { name: 'hugo', age: 8 }];
+        const p = document.querySelector('p');
+        function makeGreen() {
+            p.style.color = '#BADA55';
+            p.style.fontSize = '50px';
+        }
+
+        p.addEventListener('click', makeGreen)
+        // Regular
+        console.log('Hello');
+        // Interpolated: %s 內插入後者內容
+        console.log('Hello %s aaa', 'give me five');
+        // Styled: %c style寫在後方
+        console.log(`%c Hello World`, 'font-size:16px; color:green; text-shadow:10px 10px 0 blue;');
+
+        //不同字符警示
+        // warning!
+        console.warn('Hiiiii');
+        // Error :|
+        console.error('Error!');
+        // Info
+        console.info('Hello World is the first sentense.')
+
+        // Testing
+        //console.assert(a===b,'c') 若第一參數(a===b)為 false, 會輸出第二參數('c')
+        console.assert(p.classList.contains('ouch'), '錯了嗎')
+
+        // clearing
+        // console.clear()
+        
+        // Viewing DOM Elements
+        console.log(p);
+        console.dir(p)
+
+        // Grouping together
+        dogs.forEach(el => {
+            console.groupCollapsed(`${el.name}`)
+            console.log(`這是${el.name}`)
+            console.log(`${el.name} is ${el.age} years old.`)
+            console.log(`${el.name} is ${el.age * 7} dog years old.`)
+            console.groupEnd(`${el.name}`)
+        })
+
+        // counting
+        console.count('Wes');
+        console.count('Wes');
+        console.count('Steve');
+        console.count('Steve');
+        console.count('Wes');
+        console.count('Steve');
+        console.count('Wes');
+        console.count('Steve');
+        console.count('Steve');
+        console.count('Steve');
+        console.count('Steve');
+        console.count('Steve');
+
+        // timing: 從 time to timeEnd的執行時間
+        console.time('fetching data')
+        fetch('https://api.github.com/users/wesbos').then(data => data.json()).then(data => {
+            console.timeEnd('fetching data')
+            console.log(data);
+        })
+
+        //table 輸出格式
+        console.table(dogs)
+    </script>
+</body>
+
+</html>
