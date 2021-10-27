@@ -56,9 +56,8 @@
       items.push(item)
       populateList(items, itemsList)
       localStorage.setItem('items', JSON.stringify(items)) //將物件轉為字串儲存
-      e.target.reset() //form 重設
+      this.reset() //form 重設
       // console.log(this===e.target);
-      console.log(this);
       console.log("localStorage", localStorage.getItem('items'));
 
     }
