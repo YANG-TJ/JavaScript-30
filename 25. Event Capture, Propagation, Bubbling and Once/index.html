@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Understanding JavaScript's Capture</title>
+  <style>
+    html {
+      box-sizing: border-box;
+    }
+    
+    *, *:before, *:after { 
+      box-sizing: inherit; 
+    }
+  
+    div {
+      width: 100%;
+      padding: 100px;
+    }
+  
+    .one {
+      background: thistle;
+    }
+  
+    .two {
+      background: mistyrose;
+    }
+  
+    .three {
+      background: coral;
+    }
+  </style>
+</head>
+<body class="bod">
+
+  <div class="one">
+    <div class="two">
+      <div class="three">
+      </div>
+    </div>
+  </div>
+
+<button>click</button>
+<script>
+  const boxs = document.querySelectorAll('div')
+  const button = document.querySelector('button')
+
+  function logText(e){
+    // console.log(e.target.classList.value)
+    console.log("this",this.classList.value)
+    e.stopPropagation() //目標執行後會停止後續 "冒泡"和 "捕捉"階段，觀察第一步出發點
+  }
+  boxs.forEach(box=>box.addEventListener('click',logText,{
+    capture:false, //預設
+    once:false,
+  }))
+
+  button.addEventListener('click',()=>{
+    console.log("click!");
+  },{
+    once:true //執行一次就移除監聽事件
+    })
+</script>
+</body>
+</html>
