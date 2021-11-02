@@ -38,6 +38,7 @@ function displayTimeLeft(timing) {
   display.textContent = `${hours}:${mins}:${secs}`;
 }
 
+//結束時間顯示
 function displayEndTime(timestamp) {
   const end = new Date(timestamp);
   const hour = end.getHours();

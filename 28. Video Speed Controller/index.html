@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Video Speed Scrubber</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="wrapper">
+    <video class="flex" width="700" height="430" src="http://clips.vorwaerts-gmbh.de/VfE_html5.mp4" loop
+      controls></video>
+    <div class="speed">
+      <div class="speed-bar">1×</div>
+    </div>
+  </div>
+
+  <script>
+    const speed = document.querySelector('.speed')
+    const bar = document.querySelector('.speed-bar')
+    const video = document.querySelector('.flex')
+
+    //method1:
+    function handleMove(e) {
+      const y = e.offsetY
+      const speedHeight = this.getBoundingClientRect().height //speed的整體高度
+      const ratio = y / speedHeight //換算比例
+      const playRate = ratio * 4 //換算影片速度
+      bar.style.height=`${ratio*100}%` //控制器的顯示高度條
+      bar.innerHTML=`${playRate.toFixed(2)}x` //控制器的文字顯示
+      video.playbackRate=playRate //影片播放速度
+    }
+
+    //method2:
+    // function handleMove(e) {
+    //   //e.pageY: 滑鼠所在 y的位置(整個網頁長度下)
+    //   //this.offsetTop: 元素上方的位置，this.offsetHeight: 元素本身高度
+    //   const y = e.pageY - this.offsetTop
+    //   console.log(this.offsetTop);
+    //   const percent = y / this.offsetHeight
+    //   const min = 0.4
+    //   const max = 4
+    //   const height = `${Math.round(percent * 100)}%`
+    //   const playbackRate = percent * (max - min) + min
+    //   bar.style.height = height
+    //   bar.textContent = `${playbackRate.toFixed(2)}x` //number.toFix(n) 四捨五入到小數點第 n位
+    //   video.playbackRate = playbackRate
+    // }
+    speed.addEventListener('mousemove', handleMove)
+  </script>
+</body>
+
+</html>
