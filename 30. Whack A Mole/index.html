@@ -77,7 +77,7 @@
 
     //計分、地鼠下降
     function bonk(e) {
-      //element.isTrusted: 防作弊機制 (使用者操作為 true, 程式碼或 EventTarget.dispatchEvent() 來觸發 為 false)
+      //event.isTrusted: 防作弊機制 (使用者操作為 true, 程式碼或 EventTarget.dispatchEvent() 來觸發 為 false)
       if (!e.isTrusted) return
 
       score++
