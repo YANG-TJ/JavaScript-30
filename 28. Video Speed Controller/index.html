@@ -28,9 +28,9 @@
       const speedHeight = this.getBoundingClientRect().height //speed的整體高度
       const ratio = y / speedHeight //換算比例
       const playRate = ratio * 4 //換算影片速度
-      bar.style.height=`${ratio*100}%` //控制器的顯示高度條
-      bar.innerHTML=`${playRate.toFixed(2)}x` //控制器的文字顯示
-      video.playbackRate=playRate //影片播放速度
+      bar.style.height = `${ratio * 100}%` //控制器的顯示高度條
+      bar.innerHTML = `${playRate.toFixed(2)}x` //控制器的文字顯示
+      video.playbackRate = playRate //影片播放速度
     }
 
     //method2:
