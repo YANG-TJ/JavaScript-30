@@ -1,0 +1,38 @@
+![cover](https://camo.githubusercontent.com/07ca65497065dd926bd889c53b7b7652f8ef3cbc4320739cf7ebed3c4d34cb2d/68747470733a2f2f6a61766173637269707433302e636f6d2f696d616765732f4a53332d736f6369616c2d73686172652e706e67) 
+# JavaScript-30 練習原生JS30日  
+[原網址](https://github.com/wesbos/JavaScript30)
+
+* * *
+
+### Demo 展示:
+
+*   1\. Drum Kit: 按下鍵盤發出的效果 [效果](https://yang-tj.github.io/JavaScript-30/01.%20Drum%20Kit/index.html)
+*   2\. JS and CSS Clock: 以JS及CSS實作時鐘[效果](https://yang-tj.github.io/JavaScript-30/02.%20JS%20and%20CSS%20Clock/index.html)
+*   3\. CSS Variables: 利用 CSS變數去改變CSS及JS的值造成效果 [效果](https://yang-tj.github.io/JavaScript-30/03.%20CSS%20Variables/index.html)
+*   4\. Array Cardio Day 1: JS array的使用(filter, map, sort, reduce)，見 console結果 [效果](https://yang-tj.github.io/JavaScript-30/04.%20Array%20Cardio/index.html)
+*   5\. Flex Panel Gallery: 利用 flex 的特性及 transition 的動畫效果做出點擊後的效果呈現 [效果](https://yang-tj.github.io/JavaScript-30/05.%20Flex%20Panel%20Gallery/index.html)
+*   6\. Type Ahead: 使用 fetch api來取得城市資料，並使用正規表達式處理字串 [效果](https://yang-tj.github.io/JavaScript-30/06.%20Type%20Ahead/index.html)
+*   7\. Array Cardio Day 2: 陣列的應用，如 some(), every(), find(), findIndex(), splice(), slice(), ...，結果見 console [效果](https://yang-tj.github.io/JavaScript-30/07.%20Array%20Cario%202/index.html)
+*   8\. Fun with HTML5 Canvas: 透過 html的 canvas標籤搭配 JS做出畫布的效果，包含顏色變化和筆畫粗細的縮放 [效果](https://yang-tj.github.io/JavaScript-30/08.%20Fun%20With%20HTML5%20Canvas/index.html)
+*   9\. Dev Tools Domination: 常用的 dev tool使用，增加 JS 除錯速度 [效果](https://yang-tj.github.io/JavaScript-30/09.%20Dev%20Tools%20Domination/index.html)
+*   10\. Hold Shift and Check Checkboxes: 透過點擊 checkbox後按下 shift鍵，選取多個 checkbox的功能 [效果](https://yang-tj.github.io/JavaScript-30/10.%20Hold%20Shift%20and%20Check%20Checkboxes/index.html)
+*   11\. Custom Video Player: 客製影片，調整播放速度、快慢轉、音量大小擊暫停播放的功能 [效果](https://yang-tj.github.io/JavaScript-30/11.%20Custom%20Video%20Player/index.html)
+*   12\. Key Sequence Detection: 輸入指定密碼跳出畫面效果的功能，請輸入"showit"見效果 [效果](https://yang-tj.github.io/JavaScript-30/12.%20Key%20Sequence%20Detection/index.html)
+*   13\. Slide in on Scroll: 偵測畫面滾動，做出圖片滑入和滑出的效果 [效果](https://yang-tj.github.io/JavaScript-30/13.%20Slide%20in%20on%20Scroll/index.html)
+*   14\. JavaScript References VS Copying: JS的傳值與傳址練習 [效果](https://yang-tj.github.io/JavaScript-30/14.%20JavaScript%20References%20VS%20Copying/index.html)
+*   15\. LocalStorage : localStorage的應用 [效果](https://yang-tj.github.io/JavaScript-30/15.%20LocalStorage/index.html)
+*   16\. Mouse Move Shadow: 隨著滑鼠在圖片四周移動，產生不同顏色、方向的效果，應用 offest的操作 [效果](https://yang-tj.github.io/JavaScript-30/16.%20Mouse%20Move%20Shadow/index.html)
+*   17\. Sort Without Articles: 排序文章順序，使用 sort, map, join, replace, trim [效果](https://yang-tj.github.io/JavaScript-30/17.%20Sort%20Without%20Articles/index.html)
+*   18\. Adding Up Time With Reduce: 計算總影片的長度，使用 reduce, map [效果](https://yang-tj.github.io/JavaScript-30/18.%20Adding%20Up%20Times%20with%20Reduce/index.html)
+*   19\. WebCam Fun: 原生JS 驅動 webcam來記錄影像，並輸出到 canvas上， 並用 canvas 拍照、下載、濾鏡處理 [效果](https://yang-tj.github.io/JavaScript-30/19.%20Webcam%20Fun/index.html)
+*   20\. Speech Detection: browser內建的語音轉換 API，轉換並印出文字 [效果](https://yang-tj.github.io/JavaScript-30/20.%20Speech%20Detection/index.html)
+*   21\. Geolocation: 使用Navigator.geolocation的API去擷取當前的地理位置狀況，包含 指向 及 速度 [效果](https://yang-tj.github.io/JavaScript-30/21.%20Geolocation/index.html)
+*   22\. Follow Along Link Highlighter: 練習聚光燈效果，隨著滑鼠移動到 a標籤上就反白背景 [效果](https://yang-tj.github.io/JavaScript-30/22.%20Follow%20Along%20Link%20Highlighter/index.html)
+*   23\. Speech Synthesis: 利用 SpeechSynthesisUtterance物件，透過可以驅動瀏覽器說話的API (speechSynthesis)，來仿類似 google小姐說話的功能，包含說話速度、音頻高低 [效果](https://yang-tj.github.io/JavaScript-30/23.%20Speech%20Synthesis/index.html)
+*   24\. Sticky Nav: 製作 navbar 置頂的效果，以及動畫的展現 [效果](https://yang-tj.github.io/JavaScript-30/24.%20Sticky%20Nav/index.html)
+*   25\. Event Capture, Propagation, Bubbling and Once: 觀察 DOM事件的機制，捕捉與冒泡事件、Propagation、Once的效果，請見 console結果 [效果](https://yang-tj.github.io/JavaScript-30/25.%20Event%20Capture,%20Propagation,%20Bubbling%20and%20Once/index.html)
+*   26\. Stripe Follow Along Nav: 實做滑鼠在nav橫移時，產生的動畫效果 [效果](https://yang-tj.github.io/JavaScript-30/26.%20Stripe%20Follow%20Along%20Nav/index.html)
+*   27\. Click and Drag: 滑鼠點擊(mousedown)物件，左右橫移移動的效果 [效果](https://yang-tj.github.io/JavaScript-30/27.%20Click%20and%20Drag/index.html)
+*   28\. Video Speed Controller: 製作控制播放速度的 bar，並套用在 video上 [效果](https://yang-tj.github.io/JavaScript-30/28.%20Video%20Speed%20Controller/index.html)
+*   29\. Countdown Timer: 製作倒數計時器，並顯示結束時間 [效果](https://yang-tj.github.io/JavaScript-30/29.%20Countdown%20Timer/index.html)
+*   30\. Whack A Mole: 在一定時間內，隨機打地鼠遊戲並計分 [效果](https://yang-tj.github.io/JavaScript-30/30.%20Whack%20A%20Mole/index.html)
